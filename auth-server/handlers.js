@@ -33,7 +33,8 @@ const signIn = (req, res) => {
 
 const welcome = (req, res) => {
 	// We can obtain the session token from the requests cookies, which come with every request
-	const token = req.cookies.token
+	const token = req.headers['x-api-token'];
+	console.log(req.query, req.params)
 
 	// if the cookie is not set, return an unauthorized error
 	if (!token) {
@@ -58,7 +59,7 @@ const welcome = (req, res) => {
 
 	// Finally, return the welcome message to the user, along with their
 	// username given in the token
-	res.send(`Welcome ${payload.username}!`)
+	res.json({message: `Welcome ${payload.username}!`});
 }
 
 const refresh = (req, res) => {

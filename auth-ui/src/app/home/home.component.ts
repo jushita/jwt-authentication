@@ -37,6 +37,12 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  welcome() {
+    this.http.get(this.API_URL + `/welcome`).subscribe((data) => {
+      console.log(data)
+    });
+  }
+
 
   getPath() {
     this.http.get(this.API_URL + '/welcome')

@@ -8,7 +8,7 @@ const { signIn, welcome, refresh } = require('./handlers')
 const app = express();
 
 const options = {
-    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "x-auth-token", "fileName", "authorization"],
+    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "x-auth-token", "fileName", "authorization", "x-api-token"],
     // exposedHeaders: ["fileName"],
     methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
     origin: '*',
