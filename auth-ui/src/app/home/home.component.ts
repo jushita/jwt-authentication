@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   signIn() {
-    this.http.get(this.API_URL + 'token/sign')
+    this.http.get(this.API_URL + '/signin')
     .subscribe((res) => {
       console.log(res);
       if(res['token']) {
@@ -26,8 +26,20 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  login() {
+    this.http.post(this.API_URL +'/login', {"username":"user1","password":"password1"}).subscribe((res) => {
+      console.log(res);
+      if(res) {
+        localStorage.setItem('token', res as string);
+      }
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+
   getPath() {
-    this.http.get(this.API_URL + '/home')
+    this.http.get(this.API_URL + '/welcome')
     .subscribe((res) => {
       console.log(res);
     },
