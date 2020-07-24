@@ -19,7 +19,7 @@ app.use(cors(options));
 app.use(bodyParser.json())
 app.use(cookieParser())
 
-app.post('/login', signIn)
+app.post('/login1', signIn)
 app.get('/welcome', welcome)
 app.post('/refresh', refresh)
 
