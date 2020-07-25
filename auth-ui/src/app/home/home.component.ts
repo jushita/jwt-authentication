@@ -27,14 +27,19 @@ export class HomeComponent implements OnInit {
   }
 
   login() {
-    this.http.post(this.API_URL +'/login', {"username":"user1","password":"password1"}).subscribe((res) => {
-      console.log(res);
-      if(res) {
-        localStorage.setItem('token', res as string);
-      }
-    }, (err) => {
-      console.log(err);
-    });
+    console.log(this.API_URL + '/login')
+    this.http.post(this.API_URL +'/login', {"name":"name1","password":"password1"})
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          if(res) {
+            localStorage.setItem('token', res as string);
+          }
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
   }
 
   welcome() {

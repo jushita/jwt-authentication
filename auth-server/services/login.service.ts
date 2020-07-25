@@ -2,7 +2,7 @@ import { User } from "../models/user";
 const jwt = require("jsonwebtoken");
 
 const jwtKey = "secret_key";
-const jwtExpirySeconds = 300;
+const jwtExpirySeconds = 60*60*24;
 
 export class LoginService {
     constructor() {}
@@ -17,14 +17,13 @@ export class LoginService {
     }
     login(user: User) {
         let validUsers = this.getValidUsers();
+        console.log(validUsers)
         for(let i = 0; i < validUsers.length; i++) {
             if(user.name === validUsers[i].name && user.password === validUsers[i].password) {
                 return this.generateToken(user.name); 
             }
         }
         throw new Error(`User not recognized by system`);
-
-        //check if user is valid 
     } 
 
     generateToken(name: string) {
@@ -33,5 +32,9 @@ export class LoginService {
             expiresIn: jwtExpirySeconds
         });
         return token;
+    }
+
+    verify(token: string | string[]) {
+        return jwt.verify(token, jwtKey);
     }
 }
