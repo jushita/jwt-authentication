@@ -58,6 +58,7 @@ export class AuthRoutes {
                 return res.status(500).json(e);
             }
             res.status(200).json({ message: `Welcome ${payload.name}`});
+            LOGGER.info(`Welcoming user ${payload.name}`)
         });
         
         this.router.post('/refresh', async (req: Request, res: Response) => {

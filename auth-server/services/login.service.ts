@@ -8,6 +8,7 @@ export class LoginService {
     constructor() {}
 
     getValidUsers() {
+        // TODO: Add list of valid users or fetch from database
         let validUsers = []
         let user1 = new User('name1', 'password1');
         let user2 = new User('name2', 'passwod2');

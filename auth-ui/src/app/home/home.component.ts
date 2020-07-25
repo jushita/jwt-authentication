@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     console.log(this.API_URL + '/login')
     this.http.post(this.API_URL +'/login', {"name":"name1","password":"password1"})
       .subscribe({
-        next: (res) => {
+        next: (res: any) => {
           console.log(res);
           if(res) {
             localStorage.setItem('token', res.token as string);
