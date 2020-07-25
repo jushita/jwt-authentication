@@ -35,7 +35,6 @@ export class AuthRoutes {
             let password: string = req.body.password;
             let user = new User(name, password);
             let token: string;
-            console.log(user);
             try {
                 token = await this.loginService.login(user);
             } catch(e) {
@@ -56,8 +55,9 @@ export class AuthRoutes {
                 payload = await this.loginService.verify(token);
             } catch(e) {
                 LOGGER.error(e);
+                return res.status(500).json(e);
             }
-            res.status(200).json({message: `Welcome ${payload.username}`});
+            res.status(200).json({ message: `Welcome ${payload.name}`});
         });
         
         this.router.post('/refresh', async (req: Request, res: Response) => {
@@ -81,7 +81,7 @@ export class AuthRoutes {
 		        return res.status(400).end()
             }
             
-            let newToken = this.loginService.generateToken(payload.username);
+            let newToken = this.loginService.generateToken(payload.name);
             res.status(200).json({token: newToken}).end();
         })
     }

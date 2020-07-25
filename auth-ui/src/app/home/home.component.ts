@@ -14,18 +14,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signIn() {
-    this.http.get(this.API_URL + '/signin')
-    .subscribe((res) => {
-      console.log(res);
-      if(res['token']) {
-        localStorage.setItem('token', res['token']);
-      }
-    }, (err) => {
-      console.log(err);
-    });
-  }
-
   login() {
     console.log(this.API_URL + '/login')
     this.http.post(this.API_URL +'/login', {"name":"name1","password":"password1"})
@@ -33,7 +21,7 @@ export class HomeComponent implements OnInit {
         next: (res) => {
           console.log(res);
           if(res) {
-            localStorage.setItem('token', res as string);
+            localStorage.setItem('token', res.token as string);
           }
         },
         error: (err) => {
@@ -44,7 +32,7 @@ export class HomeComponent implements OnInit {
 
   welcome() {
     this.http.get(this.API_URL + `/welcome`).subscribe((data) => {
-      console.log(data)
+      console.log(data);
     });
   }
 

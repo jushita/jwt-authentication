@@ -17,7 +17,6 @@ export class LoginService {
     }
     login(user: User) {
         let validUsers = this.getValidUsers();
-        console.log(validUsers)
         for(let i = 0; i < validUsers.length; i++) {
             if(user.name === validUsers[i].name && user.password === validUsers[i].password) {
                 return this.generateToken(user.name); 
