@@ -6,7 +6,6 @@ import { AuthRoutes } from "./routes/auth.routes";
 import { Request } from "./typings";
 import { Response } from "express";
 
-
 const wss = ws(express());
 const app = wss.app;
 
@@ -16,13 +15,13 @@ const options = {
     origin: '*',
     preflightContinue: false
 }
+
 app.get('/', (req: Request, res: Response) => {
     res.send('Hi Welcome to Auth Server');
 });
 app.use(cors(options));
 app.use(bodyParser.json());
 app.use('/', AuthRoutes.routes());
-
 
 export default app;
 module.exports = app;

@@ -22,9 +22,9 @@ LOGGER.info('Initializing server');
 const http = require('http');
 const hostname = 'localhost';
 const port = 5000;
-
 const app = require('./app');
-const server = http.createServer(app).listen(5000); 
+const server = http.createServer(app).listen(5000);
+ 
 server.on('error', function(err: any) {
     LOGGER.error(`ERROR! Couldn't start server, ${err}`);
 });

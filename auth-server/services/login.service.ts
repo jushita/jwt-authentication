@@ -9,13 +9,14 @@ export class LoginService {
 
     getValidUsers() {
         // TODO: Add list of valid users or fetch from database
-        let validUsers = []
-        let user1 = new User('name1', 'password1');
-        let user2 = new User('name2', 'passwod2');
+        let validUsers = [];
+        let user1 = new User('jushita', 'password1');
+        let user2 = new User('chris', 'passwod2');
         validUsers.push(user1);
         validUsers.push(user2);
         return validUsers;
     }
+
     login(user: User) {
         let validUsers = this.getValidUsers();
         for(let i = 0; i < validUsers.length; i++) {

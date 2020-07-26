@@ -10,7 +10,6 @@ const LOGGER = Logger.getLogger('AuthRoutes');
 
 export class AuthRoutes {
     public static routes(): Router {
-
         let routes: AuthRoutes = new this(express.Router());
         routes.bootstrap();
         return routes.getRouter();
@@ -81,7 +80,6 @@ export class AuthRoutes {
 	        if (payload.exp - nowUnixSeconds > 30) {
 		        return res.status(400).end()
             }
-            
             let newToken = this.loginService.generateToken(payload.name);
             res.status(200).json({token: newToken}).end();
         })
