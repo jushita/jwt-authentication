@@ -1,0 +1,29 @@
+.body {
+    margin: 0px !important;
+}
+
+.header {
+    height: 60px;
+    width: 100%;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    margin: 0px;
+}
+.form-body {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+.form {
+    height: 400px;
+    width: 300px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
