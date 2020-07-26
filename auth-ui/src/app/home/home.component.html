@@ -1,20 +1,24 @@
 <div class='header'>
     <div class='topic-header'>
-        <h3>JWT Authentication Using Nodejs and Angular 9</h3>
+        <h3>JWT Authentication</h3>
     </div>
 </div>
 <div class='form-body'>
     <div class='form'>
-        <div>
-            <h4>Sign In</h4>
+        <div class='text-body'>
+            <h2 class='form-title'>Sign In</h2>
             <hr>
-            <label>Name</label>
-            <input type="text"><br><br>
-            <label>Password</label>
-            <input type="password"><br><br>
-            <button (click)="login()">Sign In</button>
-            <button (click)="welcome()">Welcome</button>
+            <label class="label-name">Name</label>
+            <br>
+            <input type="text" #name><br><br>
+            <label class='label-password'>Password</label>
+            <br>
+            <input type="password" #password><br><br>
+            <button (click)="login(name.value, password.value)">Sign In</button>
         </div>
     </div>    
+</div>
+<div class='form-body'>
+    <span *ngIf="notAuthorized" class="notAuthorized">{{notAuthorized}}</span>
 </div>
 

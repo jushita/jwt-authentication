@@ -5,7 +5,8 @@
 .header {
     height: 60px;
     width: 100%;
-    background-color: grey;
+    background-color: #BA55D3;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +18,7 @@ h3 {
 .form-body {
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 2%;
 }
 .form {
     height: 400px;
@@ -26,4 +27,32 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.form-title {
+    margin-bottom: 0px;
+}
+
+input {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 04px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    background-color: #BA55D3;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.notAuthorized {
+    color: red;
 }
