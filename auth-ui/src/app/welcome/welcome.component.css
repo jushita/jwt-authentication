@@ -1,0 +1,33 @@
+.header {
+    height: 60px;
+    width: 100%;
+    background-color: #BA55D3;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.main-body {
+    height: 300px;
+    width: 600px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-body {
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+.welcome-header {
+    align-self: center;
+}
