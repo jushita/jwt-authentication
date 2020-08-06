@@ -30,6 +30,7 @@ export class AuthRoutes {
     private bootstrap(): void {
         // TODO: Update with custom login functionality
         this.router.post('/login', async (req: Request, res: Response) => {
+            console.log(req.body)
             let name: string = req.body.name;
             let password: string = req.body.password;
             let user = new User(name, password);
@@ -82,6 +83,20 @@ export class AuthRoutes {
             }
             let newToken = this.loginService.generateToken(payload.name);
             res.status(200).json({token: newToken}).end();
+        });
+
+        this.router.post('/verify', async (req: Request, res: Response) => {
+            let token = req.body.token;
+            let verification;
+            try {
+                verification = this.loginService.verify(token);
+            } catch(e) {
+                LOGGER.error(e);
+                return res.status(400).json({error: 'Token not authorized'});
+            }
+            console.log(`getting here`)
+            console.log(verification)
+            res.status(200).json(verification);
         })
     }
 }
