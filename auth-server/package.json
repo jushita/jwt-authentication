@@ -36,7 +36,7 @@
     "express": "^4.17.1",
     "express-cls-hooked": "^0.3.8",
     "express-ws": "^4.0.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "log4js": "^6.3.0",
     "typescript": "^3.9.7"
   }
